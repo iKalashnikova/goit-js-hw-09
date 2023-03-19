@@ -10,10 +10,6 @@ const hoursSpanEl = document.querySelector('[data-hours]');
 const minSpanEl = document.querySelector('[data-minutes]');
 const secSpanEl = document.querySelector('[data-seconds]');
 
-const currentTime = Date.now();
-const startTime = flatpickr(inputEl, options);
-let deltaTime = null;
-
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -33,7 +29,9 @@ const options = {
   },
 };
 
-
+const currentTime = Date.now();
+const startTime = flatpickr(inputEl, options);
+let deltaTime = null;
 
 startBtn.setAttribute('disabled', true);
 
@@ -51,7 +49,7 @@ startBtn.addEventListener('click', handleStartTimer);
 
 function handleStartTimer() {
     timer.start();
-
+    
 
 };
 
