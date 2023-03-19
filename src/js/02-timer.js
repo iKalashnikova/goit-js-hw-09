@@ -39,7 +39,12 @@ const timer = {
     start() {
         const intervalId = setInterval(() => {
             deltaTime -= 1000;
+            if (deltaTime <= 0) {
+                clearInterval(intervalId);
+                return
+            }
             const saleTime = convertMs(deltaTime);
+             updateFaceClock(saleTime);
             console.log(saleTime);
         }, 1000);
     }
@@ -49,9 +54,8 @@ startBtn.addEventListener('click', handleStartTimer);
 
 function handleStartTimer() {
     timer.start();
-    
-
 };
+
 
 function addLeadingZero(value) {
     return String(value).padStart(2, '0');
@@ -70,5 +74,11 @@ function convertMs(deltaTime) {
   const seconds = addLeadingZero(Math.floor((((deltaTime % day) % hour) % minute) / second));
 
   return { days, hours, minutes, seconds };
-}
+};
 
+function updateFaceClock({days, hours, minutes, seconds }) {
+    daysSpanEl.textContent = days;
+    hoursSpanEl.textContent = hours;
+    minSpanEl.textContent = minutes;
+    secSpanEl.textContent = seconds;
+}
