@@ -17,7 +17,6 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
       console.log(selectedDates[0]);
-      
         if (startTime.selectedDates[0] > currentTime) {
         deltaTime = startTime.selectedDates[0].getTime() - currentTime;
         startBtn.removeAttribute('disabled');

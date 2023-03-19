@@ -16,3 +16,19 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.timer {
+  font-size: 40px;
+  color: red;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.label{
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+}
