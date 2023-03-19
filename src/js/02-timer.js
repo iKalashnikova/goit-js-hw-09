@@ -5,6 +5,10 @@ import Notiflix from 'notiflix';
 
 const inputEl = document.querySelector('#datetime-picker');
 const startBtn = document.querySelector('[data-start]');
+const daysSpanEl = document.querySelector('[data-days]');
+const hoursSpanEl = document.querySelector('[data-hours]');
+const minSpanEl = document.querySelector('[data-minutes]');
+const secSpanEl = document.querySelector('[data-seconds]');
 
 const options = {
   enableTime: true,
@@ -12,7 +16,16 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    console.log(selectedDates[0]);
+      console.log(selectedDates[0]);
+      
+        if (startTime.selectedDates[0] > currentTime) {
+        deltaTime = startTime.selectedDates[0].getTime() - currentTime;
+        startBtn.removeAttribute('disabled');
+    } else {
+        startBtn.setAttribute('disabled', true);
+        Notiflix.Notify.failure('Please choose a date in the future');
+        return
+    }
   },
 };
 
@@ -35,15 +48,15 @@ const timer = {
 startBtn.addEventListener('click', handleStartTimer);
 
 function handleStartTimer() {
-    if (startTime.selectedDates[0] > currentTime) {
-        deltaTime = startTime.selectedDates[0].getTime() - currentTime;
-        startBtn.removeAttribute('disabled');
+    // if (startTime.selectedDates[0] > currentTime) {
+    //     deltaTime = startTime.selectedDates[0].getTime() - currentTime;
+    //     startBtn.removeAttribute('disabled');
         timer.start()
-    } else {
-        startBtn.setAttribute('disabled', true);
-        Notiflix.Notify.failure('Please choose a date in the future');
-        return
-    }
+    // } else {
+    //     startBtn.setAttribute('disabled', true);
+    //     Notiflix.Notify.failure('Please choose a date in the future');
+    //     return
+    // }
 };
 
 function addLeadingZero(value) {
