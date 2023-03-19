@@ -43,7 +43,7 @@ const timer = {
                 return
             }
             const saleTime = convertMs(deltaTime);
-             updateFaceClock(saleTime);
+            updateFaceClock(saleTime);
             console.log(saleTime);
         }, 1000);
     }
