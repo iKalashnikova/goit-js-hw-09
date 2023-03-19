@@ -10,6 +10,10 @@ const hoursSpanEl = document.querySelector('[data-hours]');
 const minSpanEl = document.querySelector('[data-minutes]');
 const secSpanEl = document.querySelector('[data-seconds]');
 
+const currentTime = Date.now();
+const startTime = flatpickr(inputEl, options);
+let deltaTime = null;
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -29,9 +33,7 @@ const options = {
   },
 };
 
-const currentTime = Date.now();
-const startTime = flatpickr(inputEl, options);
-let deltaTime = null;
+
 
 startBtn.setAttribute('disabled', true);
 
@@ -48,15 +50,9 @@ const timer = {
 startBtn.addEventListener('click', handleStartTimer);
 
 function handleStartTimer() {
-    // if (startTime.selectedDates[0] > currentTime) {
-    //     deltaTime = startTime.selectedDates[0].getTime() - currentTime;
-    //     startBtn.removeAttribute('disabled');
-        timer.start()
-    // } else {
-    //     startBtn.setAttribute('disabled', true);
-    //     Notiflix.Notify.failure('Please choose a date in the future');
-    //     return
-    // }
+    timer.start();
+
+
 };
 
 function addLeadingZero(value) {
