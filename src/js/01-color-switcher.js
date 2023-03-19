@@ -4,8 +4,8 @@ const stopBtn = document.querySelector('[data-stop]');
 let timerId = null;
 
 
-console.log(startBtn);
-console.log(stopBtn);
+// console.log(startBtn);
+// console.log(stopBtn);
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, 0)}`;
