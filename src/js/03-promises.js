@@ -9,7 +9,7 @@ function handleSubmit(event) {
   const { delay, step, amount } = event.target.elements;
 
   for (let position = 0; position < amount.value; position += 1) {
-    const currentDelay = delay.value + position * step.value;
+    const currentDelay = Number(delay.value) + position * Number(step.value);
     createPromise(position, currentDelay)
       .then(({ position, delay }) => {
         Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
